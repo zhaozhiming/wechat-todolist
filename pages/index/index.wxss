@@ -19,3 +19,16 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.todo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.new-todo {
+  border: none;
+  background: #F5F5F5;
+  font-style: italic;
+  width: 80%;
+}

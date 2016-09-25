@@ -3,7 +3,8 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World11',
+    motto: 'Hello World',
+    todoContent: '',
     userInfo: {}
   },
   //事件处理函数
@@ -12,6 +13,18 @@ Page({
       url: '../logs/logs'
     })
   },
+  bindTodoInput: function(e) {
+    this.setData({
+      todoContent: e.detail.value
+    });
+  },
+  saveTodo: function(e) {
+    if (e.keyCode === 13) {
+      this.setData({
+        todoContent: ''
+      });
+    }
+  },
   onLoad: function () {
     console.log('onLoad')
     var that = this
@@ -19,9 +32,9 @@ Page({
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
-        userInfo:userInfo
-      })
-      that.update()
+        userInfo: userInfo
+      });
+      that.update();
     })
   }
 })
