@@ -1,17 +1,22 @@
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
+  <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
   <view class="todo">
-    <input class="new-todo" 
+    <input class="new-todo"
       placeholder="添加待办列表"
-      value="{{todoContent}}"
+      value="{{todo}}"
       bindinput="bindTodoInput"
       bindkeydown="saveTodo"
     />
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="todo-list">
+    <view class="todo-item" wx:for="{{todos}}">
+      <icon bindtap="toggleTodo" class="todo-check"
+        data-todo-id="{{item.id}}"
+        type="{{ item.completed ? 'success_circle' : 'circle'}}" />
+      <text class="{{ item.completed ? 'todo-content todo-completed' : 'todo-content'}}">{{item.todo}}</text>
+    </view>
   </view>
 </view>

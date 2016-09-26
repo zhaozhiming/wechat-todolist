@@ -21,14 +21,40 @@
 }
 
 .todo {
+  margin: 10px;
   display: flex;
-  justify-content: center;
-  width: 100%;
+  align-items: center;
+  background: #F5F5F5;
+  height: 35px;
 }
 
 .new-todo {
   border: none;
-  background: #F5F5F5;
   font-style: italic;
-  width: 80%;
+  width: 100%;
+}
+
+.todo-list {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+
+.todo-item {
+  display: flex;
+  height: 40px;
+}
+
+.todo-check {
+  margin-top: -3px;
+}
+
+.todo-content {
+  margin-left: 10px;
+}
+
+.todo-completed {
+  color: #d9d9d9;
+  text-decoration: line-through;
 }

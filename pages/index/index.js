@@ -3,26 +3,43 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    todoContent: '',
-    userInfo: {}
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    todo: '',
+    todos: [],
+    userInfo: {},
   },
   bindTodoInput: function(e) {
     this.setData({
-      todoContent: e.detail.value
+      todo: e.detail.value
     });
   },
   saveTodo: function(e) {
-    if (e.keyCode === 13) {
-      this.setData({
-        todoContent: ''
-      });
+    const { todo, todos } = this.data;
+    if (todo && todo.trim().length === 0) return;
+    if (e.keyCode !== 13) return;
+
+    todos.push({
+      id: new Date().getTime(),
+      todo: this.data.todo,
+      completed: false,
+    });
+    this.setData({
+      todo: '',
+      todos: todos,
+    });
+  },
+  toggleTodo: function(e) {
+    const { todoId } = e.currentTarget.dataset;
+    const { todos } = this.data;
+    for(let i = 0; i < todos.length; i++) {
+      const todo = todos[i];
+      if (Number(todoId) === todo.id) {
+        todo.completed = !todo.completed;
+        todos[i] = todo;
+        this.setData({
+          todos: todos,
+        });
+        break;
+      }
     }
   },
   onLoad: function () {
