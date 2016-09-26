@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1474894720002,
+      "todo": "foo",
+      "completed": false
+    },
+    {
+      "id": 1474894720922,
+      "todo": "bar",
+      "completed": true
+    },
+    {
+      "id": 1474894723594,
+      "todo": "foo bar",
+      "completed": false
+    }
+  ]
+}

@@ -52,6 +52,15 @@ Page({
         userInfo: userInfo
       });
       that.update();
-    })
+    });
+    wx.request({
+      url: 'http://localhost:3000/todos',
+      success: function(res) {
+        that.setData({
+          todos: res.data,
+        });
+        that.update();
+      }
+    });
   }
 })
