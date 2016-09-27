@@ -54,3 +54,28 @@
   color: #d9d9d9;
   text-decoration: line-through;
 }
+
+.todo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  font-size: 24rpx;
+}
+
+.filter {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-item {
+  margin-left: 10rpx;
+  padding: 6rpx 14rpx;
+}
+
+.filter-active {
+  border: 1px solid;
+  border-color: rgba(175, 47, 47, 0.2);
+}

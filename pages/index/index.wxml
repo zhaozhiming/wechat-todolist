@@ -12,11 +12,28 @@
     />
   </view>
   <view class="todo-list">
-    <view class="todo-item" wx:for="{{todos}}">
+    <view class="todo-item" wx:for="{{filterTodos}}">
       <icon bindtap="toggleTodo" class="todo-check"
         data-todo-id="{{item.id}}"
         type="{{ item.completed ? 'success_circle' : 'circle'}}" />
       <text class="{{ item.completed ? 'todo-content todo-completed' : 'todo-content'}}">{{item.todo}}</text>
     </view>
+  </view>
+  <view class="todo-footer">
+    <text class="total">{{todos.length}} 个待办</text>
+    <view class="filter">
+      <text bindtap="useFilter"
+        data-filter="all"
+        class="{{ filter === 'all' ? 'filter-item filter-active' : 'filter-item'}}"
+       >所有</text>
+      <text bindtap="useFilter"
+        data-filter="active"
+        class="{{ filter === 'active' ? 'filter-item filter-active' : 'filter-item'}}"       >待办</text>
+      <text bindtap="useFilter"
+        data-filter="completed"
+        class="{{ filter === 'completed' ? 'filter-item filter-active' : 'filter-item'}}"
+      >已完成</text>
+    </view>
+    <text class="clear">清除完成项</text>
   </view>
 </view>
