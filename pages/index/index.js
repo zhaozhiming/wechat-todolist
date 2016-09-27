@@ -10,12 +10,12 @@ Page({
     userInfo: {},
     activeCount: 0,
   },
-  bindTodoInput: function(e) {
+  bindTodoInput(e) {
     this.setData({
       todo: e.detail.value
     });
   },
-  saveTodo: function(e) {
+  saveTodo(e) {
     const { todo, todos, filterTodos, filter, activeCount } = this.data;
     if (todo && todo.trim().length === 0) return;
     if (e.keyCode !== 13) return;
@@ -36,11 +36,11 @@ Page({
       activeCount: activeCount + 1,
     });
   },
-  todoFilter: function(filter, todos) {
+  todoFilter(filter, todos) {
     return filter === 'all' ? todos
       : todos.filter(x => x.completed === (filter !== 'active'));
   },
-  toggleTodo: function(e) {
+  toggleTodo(e) {
     const { todoId } = e.currentTarget.dataset;
     const { filter, activeCount } = this.data;
     let { todos } = this.data;
@@ -59,7 +59,7 @@ Page({
       activeCount: completed ? activeCount - 1 : activeCount + 1,
     });
   },
-  useFilter: function(e) {
+  useFilter(e) {
     const { filter } = e.currentTarget.dataset;
     const { todos } = this.data;
     const filterTodos = this.todoFilter(filter, todos);
@@ -77,7 +77,7 @@ Page({
       filterTodos: this.todoFilter(filter, todos),
     });
   },
-  onLoad: function () {
+  onLoad() {
     console.log('onLoad')
     var that = this
   	//调用应用实例的方法获取全局数据
