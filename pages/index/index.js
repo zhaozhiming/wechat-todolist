@@ -9,6 +9,7 @@ Page({
     filter: 'all',
     userInfo: {},
     activeCount: 0,
+    hiddenToast: true,
   },
   bindTodoInput(e) {
     this.setData({
@@ -34,7 +35,14 @@ Page({
       todos,
       filterTodos,
       activeCount: activeCount + 1,
+      hiddenToast: false,
     });
+    const that = this;
+    setTimeout(function() {
+      that.setData({
+        hiddenToast: true,
+      });
+    }, 1000);
   },
   todoFilter(filter, todos) {
     return filter === 'all' ? todos

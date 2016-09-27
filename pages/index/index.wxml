@@ -11,6 +11,9 @@
       bindkeydown="saveTodo"
     />
   </view>
+  <toast hidden="{{hiddenToast}}" bindchange="saveTodo" >
+    添加成功
+  </toast>
   <view class="todo-list">
     <view class="todo-item" wx:for="{{filterTodos}}">
       <icon bindtap="toggleTodo" class="todo-check"
