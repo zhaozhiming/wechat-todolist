@@ -17,6 +17,7 @@
         data-todo-id="{{item.id}}"
         type="{{ item.completed ? 'success_circle' : 'circle'}}" />
       <text class="{{ item.completed ? 'todo-content todo-completed' : 'todo-content'}}">{{item.todo}}</text>
+      <icon bindtap="todoDel" class="todo-del" data-todo-id="{{item.id}}" type="cancel" />
     </view>
   </view>
   <view class="todo-footer">

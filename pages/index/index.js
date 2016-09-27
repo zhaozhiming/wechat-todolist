@@ -77,6 +77,18 @@ Page({
       filterTodos: this.todoFilter(filter, todos),
     });
   },
+  todoDel(e) {
+    const { todoId } = e.currentTarget.dataset;
+    const { filter, activeCount } = this.data;
+    let { todos } = this.data;
+    const todo = todos.find(x => Number(todoId) === x.id);
+    todos = todos.filter(x => Number(todoId) !== x.id);
+    this.setData({
+      todos,
+      filterTodos: this.todoFilter(filter, todos),
+      activeCount: todo.completed ? activeCount : activeCount - 1,
+    });
+  },
   onLoad() {
     console.log('onLoad')
     var that = this

@@ -40,10 +40,17 @@
 .todo-item {
   display: flex;
   height: 80rpx;
+  position: relative;
 }
 
 .todo-check {
   margin-top: -6rpx;
+}
+
+.todo-del {
+  margin-top: -6rpx;
+  position: absolute;
+  right: 20rpx;
 }
 
 .todo-content {
