@@ -20,7 +20,7 @@
     </view>
   </view>
   <view class="todo-footer">
-    <text class="total">{{todos.length}} 个待办</text>
+    <text class="total">{{activeCount}} 个待办</text>
     <view class="filter">
       <text bindtap="useFilter"
         data-filter="all"

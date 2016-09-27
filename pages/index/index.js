@@ -8,6 +8,7 @@ Page({
     filterTodos: [],
     filter: 'all',
     userInfo: {},
+    activeCount: 0,
   },
   bindTodoInput: function(e) {
     this.setData({
@@ -15,7 +16,7 @@ Page({
     });
   },
   saveTodo: function(e) {
-    const { todo, todos, filterTodos, filter } = this.data;
+    const { todo, todos, filterTodos, filter, activeCount } = this.data;
     if (todo && todo.trim().length === 0) return;
     if (e.keyCode !== 13) return;
 
@@ -32,6 +33,7 @@ Page({
       todo: '',
       todos,
       filterTodos,
+      activeCount: activeCount + 1,
     });
   },
   todoFilter: function(filter, todos) {
@@ -40,7 +42,7 @@ Page({
   },
   toggleTodo: function(e) {
     const { todoId } = e.currentTarget.dataset;
-    const { filter } = this.data;
+    const { filter, activeCount } = this.data;
     let { todos } = this.data;
     let completed = false;
     todos = todos.map(todo => {
@@ -54,6 +56,7 @@ Page({
     this.setData({
       todos,
       filterTodos,
+      activeCount: completed ? activeCount - 1 : activeCount + 1,
     });
   },
   useFilter: function(e) {
@@ -79,9 +82,14 @@ Page({
     wx.request({
       url: 'http://localhost:3000/todos',
       success: function(res) {
+        const todos = res.data;
+        const activeCount = todos
+          .map(x => x.completed ? 0 : 1)
+          .reduce((a, b) => a + b, 0);
         that.setData({
-          todos: res.data,
-          filterTodos: res.data,
+          todos,
+          filterTodos: todos,
+          activeCount,
         });
         that.update();
       }
