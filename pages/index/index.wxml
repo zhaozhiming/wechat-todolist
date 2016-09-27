@@ -1,4 +1,4 @@
-<view class="container">
+<scroll-view class="container" scroll-y="true">
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
@@ -41,4 +41,4 @@
     <text wx:if="{{ todos.length - activeCount != 0 }}" class="clear" bindtap="clearCompleted">清除完成项</text>
     <text wx:else class="clear-empty"></text>
   </view>
-</view>
+</scroll-view>
