@@ -68,6 +68,15 @@ Page({
       filterTodos,
     });
   },
+  clearCompleted() {
+    const { filter } = this.data;
+    let { todos } = this.data;
+    todos = todos.filter(x => !x.completed);
+    this.setData({
+      todos,
+      filterTodos: this.todoFilter(filter, todos),
+    });
+  },
   onLoad: function () {
     console.log('onLoad')
     var that = this

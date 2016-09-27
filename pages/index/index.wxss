@@ -79,3 +79,8 @@
   border: 1px solid;
   border-color: rgba(175, 47, 47, 0.2);
 }
+
+.clear-empty {
+  width: 120rpx;
+  height: 24rpx;
+}
