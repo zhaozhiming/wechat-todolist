@@ -11,8 +11,8 @@ git clone https://github.com/zhaozhiming/wechat-todolist.git
 * 启动服务端
 ```
 npm install -g json-server
-cd todo/server
-json-server todo.json
+cd wechat-todolist
+json-server server/todo.json
 ```
 * 微信开发者工具加载项目
 * 运行小程序
