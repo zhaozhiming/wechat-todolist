@@ -30,6 +30,10 @@
   width: 100%;
 }
 
+.new-todo-save {
+  font-size: 28rpx
+}
+
 .todo-list {
   margin: 20rpx;
   display: flex;
